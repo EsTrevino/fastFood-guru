@@ -1,7 +1,10 @@
 node_modules/
 client/src/utils/keys.js
-api/config/keys.js
+api/config/keys_dev.js
+
+
 api/.env
+
 
 lib-cov
 *.seed

@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 const chalk = require('chalk');
+const config = require('../config/keys');
+const connectionString = config.mongoURI;
+
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
-require('custom-env').env();
+// require('custom-env').env();
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(connectionString, {
   useNewUrlParser: true
 });
 
