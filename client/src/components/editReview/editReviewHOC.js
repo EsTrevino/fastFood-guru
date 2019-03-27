@@ -10,7 +10,8 @@ const editReviewExtender = WrappedComponent => {
     state = {
       rating: 0,
       textInput: '',
-      cloudinaryPhotoURL: ''
+      cloudinaryPhotoURL: '',
+      loadingPhoto: false
     };
 
     componentDidMount() {
@@ -28,17 +29,25 @@ const editReviewExtender = WrappedComponent => {
         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
         .field('file', file);
 
-      uploadRequest.end((err, response) => {
-        if (err) {
-          console.log(err);
-        }
+      this.setState(
+        {
+          loadingPhoto: true
+        },
+        () => {
+          uploadRequest.end((err, response) => {
+            if (err) {
+              console.log(err);
+            }
 
-        if (response.body.secure_url !== '') {
-          this.setState({
-            cloudinaryPhotoURL: response.body.secure_url
+            if (response.body.secure_url !== '') {
+              this.setState({
+                cloudinaryPhotoURL: response.body.secure_url,
+                loadingPhoto: false
+              });
+            }
           });
         }
-      });
+      );
     };
 
     onInputChange = e => {
@@ -77,9 +86,15 @@ const editReviewExtender = WrappedComponent => {
 
     render() {
       const { review } = this.props;
-      const { cloudinaryPhotoURL, rating, textInput } = this.state;
+      const {
+        cloudinaryPhotoURL,
+        rating,
+        textInput,
+        loadingPhoto
+      } = this.state;
       return (
         <WrappedComponent
+          loadingPhoto={loadingPhoto}
           textInput={textInput}
           onInputChange={this.onInputChange}
           uploadedPhoto={cloudinaryPhotoURL}

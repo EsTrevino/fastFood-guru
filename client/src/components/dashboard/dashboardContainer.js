@@ -17,8 +17,6 @@ class DashboardContainer extends Component {
       grabReviewInfoForDelete,
       deleteReview
     } = this.props;
-    console.log(deleteReview);
-    console.log(grabReviewInfoForEdit);
     return (
       <div>
         <div style={{ backgroundColor: 'red' }}>

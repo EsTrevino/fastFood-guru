@@ -5,10 +5,12 @@ import Ratings from 'react-ratings-declarative';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { starRatingColor, starRatingText } from '../../utils/starRating';
+import { conditionalPictureDisplay } from '../utilComponents/statelessFuntionalUtils';
 import '../review/review.css';
 
 const EditReview = props => {
   const {
+    loadingPhoto,
     textInput,
     onDrop,
     reviewSubmit,
@@ -54,7 +56,8 @@ const EditReview = props => {
         <div className="row mt-3">
           <div className=" m-auto dropzone col-8">
             <div className="text-center p-3">
-              {uploadedPhoto.length === 0 ? (
+              {conditionalPictureDisplay(uploadedPhoto, loadingPhoto)}
+              {/* {uploadedPhoto.length === 0 ? (
                 'Drag photo or click below to add a new photo'
               ) : (
                 <img
@@ -63,7 +66,7 @@ const EditReview = props => {
                   width="50"
                   src={uploadedPhoto}
                 />
-              )}
+              )} */}
             </div>
             <Dropzone
               multiple={false}

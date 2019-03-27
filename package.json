@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Fast Food Guru is a full stack app that allows users to search for individual fast food locations and leave a review and see all users reviews for individual resturant.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EsTrevino/fastFood-guru.git"
@@ -15,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/EsTrevino/fastFood-guru/issues"
   },
-  "homepage": "https://github.com/EsTrevino/fastFood-guru#readme"
+  "homepage": "https://github.com/EsTrevino/fastFood-guru#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
 }

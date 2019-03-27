@@ -9,6 +9,7 @@ import ReviewContainer from './components/review/reviewContainer';
 import DashboardContainer from './components/dashboard/dashboardContainer';
 import EditReviewContainer from './components/editReview/editReviewContainer';
 import DeleteReview from './components/deleteReview/deleteReview';
+import requireAuth from './components/Auth/requireAuth';
 
 checkForToken(localStorage);
 
@@ -20,10 +21,26 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/auth" component={Authentication} />
-            <Route exact path="/review" component={ReviewContainer} />
-            <Route exact path="/dashboard" component={DashboardContainer} />
-            <Route exact path="/editreview" component={EditReviewContainer} />
-            <Route exact path="/deletereview" component={DeleteReview} />
+            <Route
+              exact
+              path="/review"
+              component={requireAuth(ReviewContainer)}
+            />
+            <Route
+              exact
+              path="/dashboard"
+              component={requireAuth(DashboardContainer)}
+            />
+            <Route
+              exact
+              path="/editreview"
+              component={requireAuth(EditReviewContainer)}
+            />
+            <Route
+              exact
+              path="/deletereview"
+              component={requireAuth(DeleteReview)}
+            />
           </Switch>
         </Router>
       </div>

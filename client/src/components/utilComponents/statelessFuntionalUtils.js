@@ -149,18 +149,22 @@ export function dashboardConditionalDisplay(
   }
 }
 
-// export function cardConditionalRender(reviews, CardHolder, CardColumns) {
-//   if (reviews.length === 0) {
-//     return <>{isLoading()}</>;
-//   } else {
-//     return (
-//       <>
-//         <CardColumns>
-//           {reviews.map(review => (
-//             <CardHolder review={review} />
-//           ))}
-//         </CardColumns>
-//       </>
-//     );
-//   }
-// }
+export function conditionalPictureDisplay(uploadedPhoto, loadingPhoto) {
+  if (loadingPhoto) {
+    return (
+      <Loader
+        className="p-5"
+        type="Watch"
+        color="#0f7f12"
+        height="50"
+        width="50"
+      />
+    );
+  } else if (uploadedPhoto.length === 0) {
+    return 'Drag photo or click below to add a new photo';
+  } else if (uploadedPhoto.length > 0) {
+    return (
+      <img alt="uploadedPhoto" height="50" width="50" src={uploadedPhoto} />
+    );
+  }
+}

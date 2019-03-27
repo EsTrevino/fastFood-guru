@@ -5,7 +5,6 @@ const connectionString = config.mongoURI;
 
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
-// require('custom-env').env();
 
 mongoose.connect(connectionString, {
   useNewUrlParser: true
