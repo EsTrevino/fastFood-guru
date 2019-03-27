@@ -1,0 +1,17 @@
+.review-container {
+  border: solid 1px #cccccc;
+}
+
+.helperBoard {
+  border: solid 1px black;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dropzone {
+  height: 125px;
+  width: 300px;
+}

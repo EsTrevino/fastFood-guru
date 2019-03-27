@@ -1,0 +1,28 @@
+.main-cont {
+  height: 570px;
+  background-image: url('../../assets/nrd-803009-unsplash.jpg');
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(56, 54, 54, 0.26);
+  background-blend-mode: multiply;
+}
+
+.landing {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing h1 {
+  font-size: 56px;
+  font-family: 'Archivo', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+}
+
+.landing-item {
+  align-self: center;
+}

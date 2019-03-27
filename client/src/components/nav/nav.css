@@ -1,0 +1,33 @@
+.app-link span {
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.app-link {
+  text-decoration: none;
+}
+
+.app-link:hover {
+  text-decoration: none;
+}
+
+.app-link span:hover {
+  color: #d3d3d3;
+  text-decoration: none;
+}
+
+nav .auth-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.app-link {
+  color: white;
+  text-decoration: none;
+}
+
+nav .auth-holder {
+  height: 50px;
+  width: 50px;
+}

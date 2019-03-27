@@ -1,0 +1,44 @@
+.image-holder img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.card-cont {
+  width: 425px;
+}
+
+.image-holder {
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bottom-line {
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.text-cont {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.text-holder {
+  width: 150px;
+  font-size: 13px;
+}
+
+.feed img {
+  min-width: 100%;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+}
+
+.review-holder {
+  border-bottom: solid 1px #dfdfdf;
+  text-overflow: ellipsis;
+}

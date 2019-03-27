@@ -1,0 +1,11 @@
+export const AUTH_USER = 'AUTH_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const UPDATE_SEARCH = 'UPDATE_SEARCH';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
+export const USER_GEOLOCATION = 'USER_GEOLOCATION';
+export const LOCATION_SELECT = 'LOCATION_SELECT';
+export const EDIT_REVIEW = 'EDIT_REVIEW';
+export const CLEAR_REVIEW = 'CLEAR_REVIEW';
+export const DELETE_REVIEW = 'DELETE_REVIEW';
