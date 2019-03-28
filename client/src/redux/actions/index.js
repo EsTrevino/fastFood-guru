@@ -9,7 +9,9 @@ import {
   LOCATION_SELECT,
   EDIT_REVIEW,
   DELETE_REVIEW,
-  CLEAR_REVIEW
+  CLEAR_REVIEW,
+  GET_ERRORS,
+  CLEAR_ERRORS
 } from './types';
 import setAuthToken from '../../utils/setAuthToken';
 import history from '../../utils/history';
@@ -29,10 +31,17 @@ export const signInUser = state => dispatch => {
         payload: decodedToken
       });
 
+      dispatch({
+        type: CLEAR_ERRORS
+      });
+
       history.push('/');
     })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
     });
 };
 

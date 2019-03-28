@@ -71,38 +71,40 @@ router.post('/login', (req, res) => {
 
   const secret = config.secretOrKey;
 
-  User.findOne({ email: email }).then(user => {
-    bcrypt
-      .compare(password, user.password)
-      .then(isMatch => {
-        if (isMatch) {
-          const payload = {
-            userId: user._id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            city: user.city,
-            state: user.state,
-            avatar: user.avatar,
-            createdAt: user.createdAt
-          };
-          jwt.sign(payload, secret, { expiresIn: 3600 }, (err, token) => {
-            res.json({
-              success: true,
-              token: 'Bearer ' + token
+  User.findOne({ email: email })
+    .then(user => {
+      bcrypt
+        .compare(password, user.password)
+        .then(isMatch => {
+          if (isMatch) {
+            const payload = {
+              userId: user._id,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              city: user.city,
+              state: user.state,
+              avatar: user.avatar,
+              createdAt: user.createdAt
+            };
+            jwt.sign(payload, secret, { expiresIn: 3600 }, (err, token) => {
+              res.json({
+                success: true,
+                token: 'Bearer ' + token
+              });
             });
-          });
-        } else {
-          res.json({
+          } else {
+            res.status(401).json({ message: 'invalid password' });
+          }
+        })
+        .catch(err => {
+          res.status(401).json({
             error: 'Invalid email or password'
           });
-        }
-      })
-      .catch(err => {
-        res.json({
-          error: 'Invalid email or password'
         });
-      });
-  });
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'invalid email' });
+    });
 });
 
 module.exports = router;
